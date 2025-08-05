@@ -1,16 +1,7 @@
 # GAME CỜ CARO - HƯỚNG DẪN SỬ DỤNG
 
 ## 🎮 Cách chạy game:
-
-### Phương pháp 1: Chạy file .exe nâng cao (Khuyến nghị)
-- Double-click vào file `AdvancedCaroGame.exe` trong thư mục `dist/`
-
-### Phương pháp 2: Chạy từ Python (cho developer)
-- Mở PowerShell/Command Prompt
-- Chạy lệnh: `python caro_game.py`
-
-### Phương pháp 3: Chạy phiên bản web
-- Mở file `index.html` trong trình duyệt
+- Double-click vào file `AdvancedCaroGame.exe` 
 
 ## 🚀 Tính năng mới của phiên bản nâng cao:
 
@@ -54,7 +45,6 @@
 
 ### 🎮 **Điều khiển game**:
 - **Mouse**: Click vào ô để đặt quân
-- **Phím số 1-9**: Đặt quân (chỉ với bàn cờ 3x3)
 
 ### ⌨️ **Phím tắt nâng cao**:
 - **R**: Chơi lại ván hiện tại
@@ -79,24 +69,13 @@
 
 ```
 d:\caro\
-├── dist/
-│   └── AdvancedCaroGame.exe    # Game .exe nâng cao
-├── caro_game.py               # Source code Python nâng cao
+├─ AdvancedCaroGame.exe    # Game .exe nâng cao
+├── caro_game.py               # Source code Python 
 ├── index.html                 # Phiên bản web
 ├── script.js                  # JavaScript cho web
 ├── style.css                  # CSS cho web
 ├── README.md                  # File hướng dẫn này
 └── caro_settings.json        # File cài đặt (tự tạo)
-```
-
-## 🔧 Build lại file .exe (nếu cần):
-
-```powershell
-# Cài Python và pip
-pip install pyinstaller
-
-# Build phiên bản đầy đủ
-pyinstaller --onefile --windowed --name "AdvancedCaroGame" caro_game.py
 ```
 
 
@@ -105,7 +84,7 @@ pyinstaller --onefile --windowed --name "AdvancedCaroGame" caro_game.py
 - **🧠 AI thông minh**: Sử dụng thuật toán Minimax với Alpha-Beta pruning
 - **🎨 Giao diện đẹp**: Theme sáng/tối, responsive design
 - **💾 Lưu trữ**: Auto-save settings và scores
-- **🎮 UX tốt**: Smooth animations, keyboard shortcuts
 - **🔧 Tùy biến cao**: Từ 3x3 đến 10x10, 3-6 quân thắng
 
 Chúc bạn chơi game vui vẻ! 🎮✨
+
