@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Cờ Caro - Advanced</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div class="menu-screen" id="menu-screen">
+        <div class="menu-container">
+            <h1 class="menu-title">🎮 GAME CỜ CARO 🎮</h1>
+            <div class="menu-buttons">
+                <button class="menu-btn" id="play-vs-human">👥 Chơi với người</button>
+                <button class="menu-btn" id="play-vs-ai">🤖 Chơi với máy</button>
+                <button class="menu-btn" id="settings-btn">⚙️ Cài đặt</button>
+                <button class="menu-btn" id="about-btn">ℹ️ Hướng dẫn</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Screen -->
+    <div class="settings-screen hidden" id="settings-screen">
+        <div class="settings-container">
+            <h2>⚙️ Cài đặt Game</h2>
+            <div class="settings-group">
+                <label for="board-size">Kích thước bàn cờ:</label>
+                <select id="board-size">
+                    <option value="3">3x3 (Cổ điển)</option>
+                    <option value="4">4x4</option>
+                    <option value="5" selected>5x5 (Khuyến nghị)</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="8">8x8</option>
+                    <option value="9">9x9</option>
+                    <option value="10">10x10</option>
+                </select>
+            </div>
+            <div class="settings-group">
+                <label for="win-condition">Số quân cần để thắng:</label>
+                <select id="win-condition">
+                    <option value="3">3 quân</option>
+                    <option value="4">4 quân</option>
+                    <option value="5" selected>5 quân (Cờ caro chuẩn)</option>
+                    <option value="6">6 quân</option>
+                </select>
+            </div>
+            <div class="settings-group">
+                <label for="ai-difficulty">Độ khó AI:</label>
+                <select id="ai-difficulty">
+                    <option value="easy">Dễ</option>
+                    <option value="medium" selected>Trung bình</option>
+                    <option value="hard">Khó</option>
+                </select>
+            </div>
+            <div class="settings-group">
+                <label for="game-theme">Giao diện:</label>
+                <select id="game-theme">
+                    <option value="default" selected>Mặc định</option>
+                    <option value="dark">Tối</option>
+                    <option value="colorful">Nhiều màu</option>
+                </select>
+            </div>
+            <div class="settings-buttons">
+                <button class="btn btn-primary" id="save-settings">💾 Lưu cài đặt</button>
+                <button class="btn btn-secondary" id="back-to-menu">🔙 Quay lại</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div class="game-screen hidden" id="game-screen">
+        <div class="container">
+            <div class="game-header">
+                <button class="btn btn-small" id="back-to-menu-game">🏠 Menu</button>
+                <h1 id="game-title">Game Cờ Caro</h1>
+                <button class="btn btn-small" id="settings-in-game">⚙️</button>
+            </div>
+            
+            <div class="game-info">
+                <div class="player-turn">
+                    <span id="current-player-label">Lượt của:</span> 
+                    <span id="current-player">X</span>
+                </div>
+                <div class="game-mode-display" id="game-mode-display"></div>
+                <div class="score">
+                    <div class="score-item">
+                        <span class="player-x" id="player-x-name">Người chơi X:</span>
+                        <span id="score-x">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="player-o" id="player-o-name">Người chơi O:</span>
+                        <span id="score-o">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-board-container">
+                <div class="game-board" id="game-board">
+                    <!-- Board sẽ được tạo động bằng JavaScript -->
+                </div>
+            </div>
+            
+            <div class="game-status" id="game-status"></div>
+            
+            <div class="game-controls">
+                <button id="reset-btn" class="btn btn-warning">🔄 Chơi lại</button>
+                <button id="new-game-btn" class="btn btn-success">🆕 Game mới</button>
+                <button id="hint-btn" class="btn btn-info">💡 Gợi ý</button>
+                <button id="undo-btn" class="btn btn-secondary">↶ Hoàn tác</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About/Help Screen -->
+    <div class="about-screen hidden" id="about-screen">
+        <div class="about-container">
+            <h2>ℹ️ Hướng dẫn chơi</h2>
+            <div class="help-content">
+                <h3>🎯 Mục tiêu:</h3>
+                <p>Đặt các quân cờ của bạn thành một hàng liên tiếp (ngang, dọc, hoặc chéo) theo số quân quy định để thắng.</p>
+                
+                <h3>🎮 Cách chơi:</h3>
+                <ul>
+                    <li>Click chuột vào ô trống để đặt quân</li>
+                    <li>Sử dụng phím số để đặt quân (chỉ với bàn cờ 3x3)</li>
+                    <li>Người chơi X luôn đi trước</li>
+                </ul>
+                
+                <h3>⌨️ Phím tắt:</h3>
+                <ul>
+                    <li><kbd>R</kbd> - Chơi lại</li>
+                    <li><kbd>N</kbd> - Game mới</li>
+                    <li><kbd>H</kbd> - Gợi ý (khi chơi với máy)</li>
+                    <li><kbd>U</kbd> - Hoàn tác</li>
+                    <li><kbd>Esc</kbd> - Đóng modal/Quay lại menu</li>
+                </ul>
+                
+                <h3>🤖 Chế độ chơi với máy:</h3>
+                <ul>
+                    <li><strong>Dễ:</strong> AI chơi ngẫu nhiên</li>
+                    <li><strong>Trung bình:</strong> AI có chiến thuật cơ bản</li>
+                    <li><strong>Khó:</strong> AI sử dụng thuật toán minimax</li>
+                </ul>
+            </div>
+            <div class="about-buttons">
+                <button class="btn btn-primary" id="back-from-about">🔙 Quay lại</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Modal -->
+    <div class="modal" id="result-modal">
+        <div class="modal-content">
+            <h2 id="result-title"></h2>
+            <p id="result-message"></p>
+            <div class="modal-buttons">
+                <button id="play-again-btn" class="btn btn-primary">🔄 Chơi lại</button>
+                <button id="back-to-menu-modal" class="btn btn-secondary">🏠 Menu</button>
+                <button id="close-modal-btn" class="btn btn-secondary">❌ Đóng</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
